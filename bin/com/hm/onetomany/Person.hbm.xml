@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hm.onetomany" auto-import="false">
+<!-- Employee类名table：表名 -->
+	<class name="Person" table="person">
+	<!-- id元素指定主键属性 -->
+	<id name="id" column="id" type="java.lang.Integer">
+	<!-- generator元素用于指定主键的生成策略 -->
+	<generator class="increment"></generator>
+	</id>
+	<property name="name" type="java.lang.String">
+	<column name="name" not-null="true"></column>
+	</property>
+	<!-- bean类set集合的名字-->
+	<set name="cars" cascade="all" inverse="true">
+	<!-- 外键 -->
+	<key column="p_id"></key>
+	<one-to-many class="Car"></one-to-many>
+	</set>
+	</class>
+</hibernate-mapping>

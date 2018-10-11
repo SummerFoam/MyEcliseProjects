@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hm.manytomany2" auto-import="false">
+	<class name="StuCou" table="stu_cou2">
+	<!--联合id -->
+	<composite-id name="id" class="StuCouId">
+		<key-many-to-one name="stu" class="Student" column="s_id"></key-many-to-one>
+		<key-many-to-one name="cou" class="Course" column="c_id"></key-many-to-one>
+	</composite-id>
+	<property name="remark" type="java.lang.String">
+	<column name="remark" not-null="false"></column>
+	</property>
+	</class>
+</hibernate-mapping>

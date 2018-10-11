@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping 
+PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hm.hql">
+    <class name="Student" lazy="false" table="student1" >
+        <id name="sid" type="java.lang.Long">
+            <column name="sid"/>
+            <generator class="assigned" />
+        </id>
+        <property name="sname" type="java.lang.String">
+            <column name="sname" not-null="true" />
+        </property>
+        <property name="ssex" type="java.lang.String">
+            <column name="ssex" not-null="true" />
+        </property>
+        <property name="sdept" type="java.lang.String">
+            <column name="sdept" not-null="true" />
+        </property>
+        <property name="sage" type="java.lang.Long">
+            <column name="SAGE" precision="3" scale="0" />
+        </property>
+        <property name="saddress" type="java.lang.String">
+            <column name="saddress"/>
+        </property>
+        <set name="studcourses" inverse="true">
+            <key>
+                <column name="sid"/>
+            </key>
+            <one-to-many class="Studcourse" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hm.inheritance.onetable" auto-import="false">
+	<!-- discriminator-value指定辨别者列的值 -->
+	<class name="Animal" table="all_animal" discriminator-value="animal">
+	<!-- id元素指定主键属性 -->
+	<id name="id" column="id">
+	<!-- generator元素用于指定主键的生成策略 -->
+	<generator class="increment"></generator>
+	</id>
+	<discriminator column="a_type"></discriminator>
+	<property name="name" type="java.lang.String">
+	<column name="name" not-null="true"></column>
+	</property>
+	<property name="color" type="java.lang.String">
+	<column name="color" not-null="true"></column>
+	</property>
+	
+	<subclass name="Dog" discriminator-value="dog">
+	<property name="callType"/>
+	</subclass>
+	<subclass name="Bird" discriminator-value="bird">
+	<property name="type"/>
+	</subclass>
+	</class>
+</hibernate-mapping>

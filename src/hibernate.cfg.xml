@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+		<!-- 这是hibernate的核心文件，它的主要作用包括1.配置连接数据库的类型... -->
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql:///test</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">123456</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
+     	<!-- 这个是用于指定对象映射文件的 -->
+        <mapping resource="com/hm/bean/Employee.hbm.xml"/>
+ 		 <mapping resource="com/hm/onetomany/Person.hbm.xml"/>
+   		<mapping resource="com/hm/onetomany/Car.hbm.xml"/>
+   		<mapping resource="com/hm/manytomany/Student.hbm.xml"/>
+   		<mapping resource="com/hm/manytomany/Course.hbm.xml"/>
+   		<!-- <mapping resource="com/hm/onetoone/waijian/Husband.hbm.xml"/> -->
+   		<!-- <mapping resource="com/hm/onetoone/waijian/Wife.hbm.xml"/> -->
+   		<mapping resource="com/hm/onetoone/zhujian/Husband.hbm.xml"/>
+   		<mapping resource="com/hm/onetoone/zhujian/Wife.hbm.xml"/>
+   		<mapping resource="com/hm/inheritance/twotable/inheri_sub.hbm.xml"/>
+   		<mapping resource="com/hm/inheritance/threetable/inheri_subThree.hbm.xml"/>
+   		<mapping resource="com/hm/inheritance/onetable/inheri_subOne.hbm.xml"/>
+   		<mapping resource="com/hm/manytomany2/Student.hbm.xml"/>
+   		<mapping resource="com/hm/manytomany2/Course.hbm.xml"/>
+   		<mapping resource="com/hm/manytomany2/StuCou.hbm.xml"/>
+    </session-factory>
+
+</hibernate-configuration>
+

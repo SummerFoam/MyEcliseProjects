@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping 
+PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hm.hql">
+    <class name="Course" table="course1" >
+        <id name="cid" type="java.lang.Long">
+            <column name="CID" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="cname" type="java.lang.String">
+            <column name="cname" not-null="true" />
+        </property>
+        <property name="ccredit" type="java.lang.Long">
+            <column name="ccredit"/>
+        </property>
+        <set name="studcourses" inverse="true">
+            <key>
+                <column name="cid"/>
+            </key>
+            <one-to-many class="Studcourse" />
+        </set>
+    </class>
+</hibernate-mapping>
